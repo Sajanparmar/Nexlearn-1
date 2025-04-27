@@ -4,9 +4,353 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ Section</title>
-    <link rel="stylesheet" href="Faqs.css">
 </head>
 <body>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'); /* Example font */
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9fafb; 
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    background: #fff;
+    max-width: auto;
+    width: 100%;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    padding-bottom: 40px;
+    overflow: hidden;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 32px 36px 0 36px;
+    background: #fff;
+  }
+  
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  
+  .nav-links li a.active,
+  .nav-links li a:hover {
+    background: #f2f2f2;
+  }
+  
+  .nav-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+  }
+  
+  .signup-btn {
+    background: transparent;
+    border: none;
+    color: #222;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 1px;
+    border-radius: 6px;
+    transition: background 0.2s;
+  }
+  
+  .signup-btn:hover {
+    background: #f2f2f2;
+  }
+  
+  .login-btn {
+    background: #ff9800;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 8px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .login-btn:hover {
+    background: #e68900;
+  }
+
+.breadcrumb {
+    color: #6b7280; /* Muted grey */
+    margin-bottom: 40px;
+    padding-left: 5%; /* Adjust as needed */
+}
+
+.faq-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 40px auto; /* Center and add bottom margin */
+    gap: 50px; /* Space between header and accordion */
+    padding: 0 5%; /* Padding on sides */
+    flex-grow: 1; /* Allow container to grow */
+}
+
+.faq-header {
+    flex-basis: 40%; /* Adjust width */
+}
+
+.faq-header h1 {
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.faq-header p {
+    color: #4b5563; /* Darker grey */
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.btn-secondary {
+    background-color: #fff;
+    border: 1px solid #d1d5db; /* Light grey border */
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #f3f4f6; /* Slightly darker grey on hover */
+}
+
+.faq-accordion {
+    flex-basis: 60%; /* Adjust width */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background-color: #fff;
+    border: 1px solid #e5e7eb; /* Very light grey border */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.faq-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: #fff3e0; /* Light orange background */
+    color: #fb923c; /* Orange color */
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 1px solid #ffe0b2; /* Lighter orange border */
+}
+
+.faq-item.active .faq-toggle {
+     background-color: #fee2e2; /* Light red background for 'x' */
+     color: #f87171; /* Red color */
+     border-color: #fecaca; /* Lighter red border */
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, margin-top 0.3s ease-out;
+    margin-top: 0;
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px; /* Adjust as needed, should be larger than content */
+    margin-top: 15px; /* Space between question and answer */
+    transition: max-height 0.5s ease-in, margin-top 0.3s ease-in;
+}
+
+.btn-tertiary {
+    background-color: #f3f4f6; /* Light grey background */
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 36px); /* Adjust width if needed */
+    color: #374151; /* Dark grey text */
+    transition: background-color 0.2s;
+}
+
+.btn-tertiary:hover {
+     background-color: #e5e7eb; /* Slightly darker grey */
+}
+
+.btn-tertiary .arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #9ca3af; /* Medium grey border */
+    border-radius: 50%;
+    font-size: 0.9rem;
+    color: #6b7280; /* Medium grey */
+}
+
+/* Footer Styles */
+footer {
+    background: #fff;
+    border-top: 1px solid var(--border);
+    padding: 40px 0 16px 0;
+    margin-top: 32px;
+  }
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .footer-col {
+    flex: 1 1 180px;
+    margin-bottom: 18px;
+  }
+  .footer-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark);
+  }
+  .footer-link, .footer-contact, .footer-social {
+    color: var(--gray);
+    font-size: 0.98rem;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 7px;
+  }
+  .footer-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .footer-socials a {
+    color: var(--gray);
+    font-size: 1.3rem;
+    transition: color .2s;
+  }
+  .footer-socials a:hover {
+    color: var(--primary);
+  }
+  .footer-bottom {
+    text-align: center;
+    color: #bbb;
+    font-size: 0.93rem;
+    margin-top: 16px;
+  }
+  @media (max-width: 900px) {
+    .benefits-list {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-container {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px 10px;
+    }
+    .hero-title {
+      font-size: 1.3rem;
+    }
+    .hero-video img {
+      width: 100%;
+      min-width: 0;
+    }
+    .benefits-list {
+      grid-template-columns: 1fr;
+    }
+    .benefits-section {
+      padding: 28px 0 24px 0;
+    }
+    .footer-container {
+      padding: 0 10px;
+    }
+  }
+
+/* Responsive adjustments (optional basic example) */
+@media (max-width: 768px) {
+    .faq-container {
+        flex-direction: column;
+    }
+    .faq-header, .faq-accordion {
+        flex-basis: 100%;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+    }
+    .footer-column {
+        min-width: 100%;
+    }
+    .social-profiles .social-icons {
+        justify-content: center;
+    }
+    .contact-info p {
+        justify-content: center;
+    }
+}
+
+ 
+  </style>
     <div class="container">
     <nav class="navbar">
         <div class="logo">
