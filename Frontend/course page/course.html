@@ -384,6 +384,10 @@
       © 2025 NEXLEARN. All rights reserved.
     </div>
   </footer>
-    <script src="course.js"></script>
+    <script>document.querySelectorAll('.auth-buttons button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('This is a demo. Authentication not implemented.');
+        });
+    });</script>
 </body>
 </html>
