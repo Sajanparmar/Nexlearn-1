@@ -2,22 +2,279 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us - SkillBridge</title>
+  <title>Contact Us - Nexlearn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="contact.css">
+  
   <!-- FontAwesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+  <style>/* Contact Page CSS */
+    :root {
+      --primary: #ff9900;
+      --bg: #fafbfc;
+      --border: #eee;
+      --text: #222;
+      --gray: #888;
+      --radius: 8px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 48px 0 48px;
+      background: #fff;
+    }
+    .header .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      background: #fff;
+      border-radius: 6px;
+      padding: 4px 12px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .header nav {
+      flex: 1;
+      margin-left: 32px;
+    }
+    .header nav a {
+      margin: 0 12px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 10px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    .header nav a:hover, .header nav a.active {
+      background: #f5f5f5;
+    }
+    .header .auth {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .header .btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 8px 22px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-left: 6px;
+      transition: background 0.2s;
+    }
+    .header .btn:hover {
+      background: #e68a00;
+    }
+    /* Page Title & Description and the other extra to do things which are arranged*/
+    .container {
+      max-width: 1200px;
+      margin: 32px auto 0 auto;
+      padding: 0 16px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .desc {
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    /* Contact Form Section */
+    .contact-section {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px #0001;
+      padding: 32px;
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .contact-form {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 320px;
+    }
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+    .form-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      color: var(--gray);
+    }
+    .form-group input, .form-group textarea {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 1rem;
+      background: #fafbfc;
+      outline: none;
+      transition: border 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border: 1.5px solid var(--primary);
+    }
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .send-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      align-self: flex-start;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+    .send-btn:hover {
+      background: #e68a00;
+    }
+    /* Contact Info */
+    .contact-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 260px;
+      justify-content: flex-start;
+    }
+    .info-box {
+      background: #fafbfc;
+      border-radius: var(--radius);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1rem;
+      color: var(--gray);
+      border: 1px solid var(--border);
+    }
+    .info-box i {
+      font-size: 1.3em;
+      color: var(--primary);
+    }
+    .social-icons {
+      display: flex;
+      gap: 16px;
+      margin-top: 6px;
+    }
+    .social-icons a {
+      color: var(--gray);
+      font-size: 1.3em;
+      transition: color 0.2s;
+    }
+    .social-icons a:hover {
+      color: var(--primary);
+    }
+    /* Footer */
+    .footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 32px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      font-size: 1rem;
+      margin-top: 40px;
+    }
+    .footer .footer-logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .footer .footer-contact {
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .footer .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .footer .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer .footer-links li {
+      margin-bottom: 8px;
+    }
+    .footer .footer-links a {
+      color: black;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer .footer-links a:hover {
+      color: var(--primary);
+    }
+    .footer .footer-social {
+      margin-top: 8px;
+    }
+    .footer .footer-social a {
+      color: var(--gray);
+      margin-right: 12px;
+      font-size: 1.2em;
+      transition: color 0.2s;
+    }
+    .footer .footer-social a:hover {
+      color: var(--primary);
+    }
+    @media (max-width: 900px) {
+      .contact-section {
+        flex-direction: column;
+        gap: 32px;
+      }
+      .footer {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+    @media (max-width: 600px) {
+      .header, .container {
+        padding: 0 8px;
+      }
+      .contact-section {
+        padding: 16px;
+      }
+      .footer {
+        padding: 16px 8px;
+      }
+    }</style>
   <!-- Header -->
   <div class="header">
     <img src="Logo_without_bck2.PNG" style="width: 40px; height: 40px;" alt="Logo">
     <nav>
       <a href="../home page/home.html">Home</a>
-      <a href="#">Courses</a>
-      <a href="#">About Us</a>
-      <a href="#">Pricing</a>
-      <a href="#" class="active">Contact</a>
     </nav>
     <div class="auth">
       <a href="#" class="btn" style="background:#fff; color:var(--primary); border:1px solid var(--primary);">Sign Up</a>
@@ -28,7 +285,7 @@
   <div class="container">
     <h1>Contact Us</h1>
     <div class="desc">
-      Welcome to SkillBridge's Pricing Page, where we offer two comprehensive options to cater to your needs. Find one that suits you. We believe in providing flexible and affordable pricing options for our services. Whether you are an individual looking to enhance your skills or a business seeking professional development solutions, we have a plan that suits you. Explore our pricing options below and choose the one that best fits your requirements.
+      Welcome to Nexlearn's Pricing Page, where we offer two comprehensive options to cater to your needs. Find one that suits you. We believe in providing flexible and affordable pricing options for our services. Whether you are an individual looking to enhance your skills or  we have a plan that suits you. Explore our pricing options below and choose the one that best fits your requirements.
     </div>
     <!-- Contact Section -->
     <div class="contact-section">
@@ -66,9 +323,9 @@
       </form>
       <!-- Contact Info -->
       <div class="contact-info">
-        <div class="info-box"><i class="fa-solid fa-envelope"></i> support@skillbridge.com</div>
-        <div class="info-box"><i class="fa-solid fa-phone"></i> +91 00000 00000</div>
-        <div class="info-box"><i class="fa-solid fa-location-dot"></i> Some Where in the World</div>
+        <div class="info-box"><i class="fa-solid fa-envelope"></i> support@Nexlearn.com</div>
+        <div class="info-box"><i class="fa-solid fa-phone"></i> +91 99999 888888</div>
+        <div class="info-box"><i class="fa-solid fa-location-dot"></i> Some Where in the India</div>
         <div class="info-box">
           <span>Social Profiles</span>
           <div class="social-icons">
@@ -85,9 +342,9 @@
     <div>
       <span class="footer-logo"><i class="fa-solid fa-square"></i></span>
       <div class="footer-contact">
-        <div><i class="fa-solid fa-envelope"></i> hello@skillbridge.com</div>
+        <div><i class="fa-solid fa-envelope"></i> hello@Nexlearn.com</div>
         <div><i class="fa-solid fa-phone"></i> +91 98123 23209</div>
-        <div><i class="fa-solid fa-location-dot"></i> Somewhere in the World</div>
+        <div><i class="fa-solid fa-location-dot"></i> Somewhere in the India</div>
       </div>
     </div>
     <div class="footer-links">
@@ -95,7 +352,6 @@
         <li><strong>Home</strong></li>
         <li><a href="#">Benefits</a></li>
         <li><a href="#">Our Courses</a></li>
-        <li><a href="#">Our Testimonials</a></li>
         <li><a href="#">Our FAQ</a></li>
       </ul>
       <ul>
@@ -107,10 +363,17 @@
     </div>
     <div class="footer-social">
       <strong>Social Profiles</strong><br>
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook"></i>a>
       <a href="#"><i class="fab fa-twitter"></i></a>
       <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
   </div>
+  <script>    // Simple form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting us! We will get back to you soon.');
+      this.reset();
+    });
+    </script>
 </body>
 </html>

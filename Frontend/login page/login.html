@@ -3,91 +3,388 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Login Page</title>
-    <link rel="stylesheet" href="login.css">
+    <style>
+    :root {
+      --primary: #e6a700;
+      --dark: #222;
+      --gray: #666;
+      --border: #eee;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f8f9fc;
+      color: #333;
+    }
+    /* Navigation */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+    .logo {
+      width: 40px;
+      height: 40px;
+    }
+    nav {
+      display: flex;
+      gap: 28px;
+      padding: 10px 40px;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color .2s;
+    }
+    nav a:hover {
+      color: var(--primary);
+    }
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-left: auto;
+    }
+    .nav-signup {
+      color: var(--dark);
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.2s;
+      /* Looks like plain text */
+    }
+    .nav-signup:hover {
+      color: var(--primary);
+    }
+    .nav-login {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .nav-login:hover {
+      background: #e6a700;
+    }
+    /* Main layout */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      padding: 3rem 2rem;
+    }
+    /* Testimonials Section */
+    .testimonials {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .testimonials h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+    .testimonials p {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .testimonial {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    .carousel-controls {
+      display: flex;
+      gap: 1rem;
+    }
+    .carousel-controls button {
+      padding: 0.5rem 1rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    /* Login Section */
+    .login {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .login h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .login p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+    input[type="email"],
+    input[type="password"] {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .login a {
+      font-size: 0.85rem;
+      color: #007bff;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      align-self: flex-end;
+    }
+    .login-btn {
+      background: #e6a700;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .login-btn-google {
+      background-color: #e6a700;
+      color: white;
+      border: none;
+      padding: 15px 32px;
+      text-align: center;
+      font-size: 16px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: fit-content;
+      margin: 10px auto 1rem auto;
+    }
+    .login-btn-google img {
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    /* OR separator */
+    .separator {
+      text-align: center;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .separator span {
+      background: #fff;
+      padding: 0 1rem;
+      color: #888;
+      position: relative;
+      z-index: 1;
+    }
+    .separator::before {
+      content: "";
+      height: 1px;
+      background: #ccc;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      z-index: 0;
+    }
+    /* Footer */
+    footer {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      padding: 40px 0 16px 0;
+      margin-top: 32px;
+    }
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .footer-col {
+      flex: 1 1 180px;
+      margin-bottom: 18px;
+    }
+    .footer-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+    .footer-link, .footer-contact, .footer-social {
+      color: var(--gray);
+      font-size: 0.98rem;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 7px;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .footer-socials a {
+      color: black;
+      font-size: 1.3rem;
+      transition: color .2s;
+    }
+    .footer-socials a:hover {
+      color: var(--primary);
+    }
+    .footer-bottom {
+      text-align: center;
+      color: #bbb;
+      font-size: 0.93rem;
+      margin-top: 16px;
+    }
+    @media (max-width: 900px) {
+      .footer-container {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 18px 10px;
+      }
+      nav {
+        padding: 10px 0;
+      }
+      main {
+        grid-template-columns: 1fr;
+        padding: 1rem 0.5rem;
+      }
+      .footer-container {
+        padding: 0 10px;
+      }
+    }
+    </style>
 </head>
 <body>
-      <!-- Header -->
+  <!-- Header -->
   <header>
     <div class="logo">
-        <img src="Logo_without_bck2.PNG" style="width: 40px; height: 40px;" alt="Logo">
+      <img src="Logo_without_bck2.PNG" style="width: 40px; height: 40px;" alt="Logo">
     </div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Courses</a>
-      <a href="#">About Us</a>
-      <a href="#">FAQs</a>
-      <a href="#">Contact</a>
+      <a href="../home page/home.html">Home</a>
+      <a href="../course page/course.html">Courses</a>
+      <a href="../about us page/about.html">About Us</a>
+      <a href="../Faqs page/Faqs.html">FAQs</a>
+      <a href="../contact page/contact.html">Contact</a>
     </nav>
     <div class="nav-actions">
-      <a href="#">Sign Up</a>
-      <a href="#" class="btn">Login</a>
+      <a href="../signup page/signup.html" class="nav-signup">Sign Up</a>
+      <a href="../login page/login.html" class="nav-login">Login</a>
     </div>
   </header>
 
-    <main>
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <h1>Students Testimonials</h1>
-            <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.</p>
-            <div class="testimonial">
-                The web design course provided a solid foundation for me. The instructors were knowledgeable and supportive, and the interactive learning environment was engaging. I highly recommend it!
-            </div>
-            <div class="carousel-controls">
-                <button>&larr;</button>
-                <button>&rarr;</button>
-            </div>
-        </section>
+  <main>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+      <h1>Students Testimonials</h1>
+      <p>Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in velit fringilla feugiat senectus in.</p>
+      <div class="testimonial">
+        The web design course provided a solid foundation for me. The instructors were knowledgeable and supportive, and the interactive learning environment was engaging. I highly recommend it!
+      </div>
+      <div class="carousel-controls">
+        <button>&larr;</button>
+        <button>&rarr;</button>
+      </div>
+    </section>
 
-        <!-- Login Section -->
-        <section class="login">
-            <h2>Login</h2>
-            <p>Welcome back! Please log in to access your account.</p>
-            <form>
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Enter your Email">
+    <!-- Login Section -->
+    <section class="login">
+      <h2>Login</h2>
+      <p>Welcome back! Please log in to access your account.</p>
+      <form>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your Email">
 
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter your Password">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your Password">
 
-                <div class="remember-me">
-                    <input type="checkbox" id="remember">
-                    <label for="remember">Remember Me</label>
-                </div>
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Remember Me</label>
+        </div>
 
-                <a href="#">Forgot Password?</a>
+        <a href="#">Forgot Password?</a>
 
-                <button type="submit" class="login-btn">Login</button>
+        <button type="submit" class="login-btn">Login</button>
 
-                <div class="separator"><span>OR</span></div>
+        <div class="separator"><span>OR</span></div>
+        <div class="google-login">
+          <button type="button" class="login-btn-google">
+            <img src="https://img.icons8.com/color/16/000000/google-logo.png">
+            Login with Google
+          </button>
+        </div>
+        <p>Don’t have an account? <a href="#">Sign Up</a></p>
+      </form>
+    </section>
+  </main>
 
-                <div class="google-login">
-                    <button type="button" class="login-btn-google">
-                        <img src="https://img.icons8.com/color/16/000000/google-logo.png">
-                        Login with Google
-                    </button>
-                </div>
-
-                <p>Don’t have an account? <a href="#">Sign Up</a></p>
-            </form>
-        </section>
-    </main>
-
-     <!-- Footer -->
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-col">
         <div class="footer-title">Contact</div>
         <div class="footer-contact">NEXLEARN@gmail.com</div>
-        <div class="footer-contact">+91-99999-99999</div>
-        <div class="footer-contact">Somewhere in the World</div>
+        <div class="footer-contact">+91-99999-88888</div>
+        <div class="footer-contact">Somewhere in the India</div>
       </div>
       <div class="footer-col">
         <div class="footer-title">Home</div>
         <a href="#" class="footer-link">Benefits</a>
         <a href="#" class="footer-link">Courses</a>
         <a href="#" class="footer-link">Our Team</a>
-        <a href="#" class="footer-link">Our Testimonials</a>
         <a href="#" class="footer-link">Our FAQ</a>
       </div>
       <div class="footer-col">
@@ -99,8 +396,7 @@
       <div class="footer-col">
         <div class="footer-title">Social Profiles</div>
         <div class="footer-socials">
-          <i class="fa-brands fa-facebook-f"></i>
-          <a href="#" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
           <a href="#" title="Twitter"><span>&#xf099;</span></a>
           <a href="#" title="Instagram"><span>&#xf16d;</span></a>
           <a href="#" title="LinkedIn"><span>&#xf0e1;</span></a>
@@ -111,7 +407,22 @@
       © 2025 NEXLEARN. All rights reserved.
     </div>
   </footer>
-     <!-- JavaScript -->
-     <script src="login.js"></script>
+  <script>
+    // Carousel functionality
+    const testimonials = [
+      "The web design course provided a solid foundation for me. The instructors were knowledgeable and supportive, and the interactive learning environment was engaging. I highly recommend it!",
+      "This course helped me land my first job in web development. The projects were practical and the feedback was invaluable!",
+      "I loved the hands-on approach and the supportive community. It made learning so much fun!"
+    ];
+    let currentTestimonialIndex = 0;
+    document.querySelector('.carousel-controls button:first-child').addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length;
+      document.querySelector('.testimonial').textContent = testimonials[currentTestimonialIndex];
+    });
+    document.querySelector('.carousel-controls button:last-child').addEventListener('click', () => {
+      currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+      document.querySelector('.testimonial').textContent = testimonials[currentTestimonialIndex];
+    });
+  </script>
 </body>
 </html>
