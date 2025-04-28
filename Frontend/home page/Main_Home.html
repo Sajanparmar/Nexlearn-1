@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .welcome-page {
+      display: flex;
+      height: 100%;
+    }
+    .left-side {
+      background: #f1f2f3;
+      flex: 1;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .left-side h2 {
+      color: #999;
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .left-side h1 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 20px;
+    }
+    .left-side p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+    .left-side a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .right-side {
+      background: #ff7b00;
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .speech-bubble {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 15px;
+      position: relative;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      transform: rotate(45deg);
+      box-shadow: -3px 3px 5px rgba(0,0,0,0.05);
+    }
+    .megaphone-icon {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      font-size: 2.5rem;
+      color: white;
+      transform: rotate(-20deg);
+    }
+    .right-side a {
+      position: absolute;
+      bottom: 20px;
+      right: 40px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+    .right-side a:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+    @media (max-width: 768px) {
+      .welcome-page {
+        flex-direction: column;
+      }
+      .right-side {
+        min-height: 300px;
+      }
+      .right-side a {
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="welcome-page">
+  <div class="left-side">
+    
+    <h2>Ultimate Guide</h2>
+    <h1>Website Welcome Messages: <br>Skyrocket Conversions & Enhance UX</h1>
+    <p>Discover how powerful welcome pages and first impressions can make or break user engagement. Start creating impactful welcome experiences today!</p>
+  </div>
+  <div class="right-side">
+    <div class="speech-bubble">WELCOME</div>
+    <i class="fas fa-bullhorn megaphone-icon"></i>
+    <a href="../home page/home.html">Home</a>
+  </div>
+</div>
+
+</body>
+</html>
