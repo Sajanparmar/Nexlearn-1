@@ -5,363 +5,394 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Unlock Your Creative Potential</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    :root {
-      --primary: #ffb800;
-      --dark: #222;
-      --gray: #666;
-      --light: #f9f9f9;
-      --border: #eee;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      background: #fff;
-      color: var(--dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    /* Welcome Note Styling */
-    .welcome-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--primary);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      font-weight: 700;
-      z-index: 9999;
-      animation: fadeOut 3s forwards;
-    }
-
-    @keyframes fadeOut {
-      0% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { opacity: 0; visibility: hidden; }
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid var(--border);
-      background: #fff;
-    }
-    .logo {
-        width: 40px;
-        height: 40px;
-    }
-    nav {
-      display: flex;
-      gap: 28px;
-      padding: 10px 40px;
-    }
-    nav a {
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color .2s;
-    }
-    nav a:hover {
-      color: var(--primary);
-    }
-    .nav-actions {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      margin-left: auto;
-    }
-    .nav-actions a {
-      color: var(--dark);
-      font-size: 1rem;
-      text-decoration: none;
-    }
-    .btn {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 8px 22px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background .2s;
-      text-decoration: none;
-      margin-left: 8px;
-    }
-    .btn:hover {
-      background: #e6a700;
-    }
-    .hero {
-      text-align: center;
-      padding: 48px 20px 30px 20px;
-      background: #fff;
-    }
-    .hero .highlight {
-      color: var(--primary);
-      font-weight: 700;
-    }
-    .hero-title {
-      font-size: 2.3rem;
-      font-weight: 700;
-      margin: 0 0 12px 0;
-    }
-    .hero-desc {
-      font-size: 1.1rem;
-      color: var(--gray);
-      margin-bottom: 12px;
-    }
-    .hero .btn {
-      margin-top: 18px;
-      font-size: 1.1rem;
-      padding: 12px 32px;
-    }
-    .hero-video {
-      display: flex;
-      justify-content: center;
-      margin-top: 36px;
-      margin-bottom: 24px;
-    }
-    .hero-video img {
-      border-radius: 12px;
-      max-width: 100%;
-      width: 520px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-    }
-    .benefits-section {
-      background: var(--light);
-      padding: 44px 0 40px 0;
-    }
-    .benefits-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .benefits-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 28px;
-    }
-    .benefits-title {
-      font-size: 1.45rem;
-      font-weight: 600;
-    }
-    .benefits-viewall {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: color .2s;
-    }
-    .benefits-viewall:hover {
-      color: #e6a700;
-    }
-    .benefits-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px 24px;
-    }
-    .benefit-item {
-      background: #fff;
-      border-radius: 10px;
-      padding: 32px 22px 28px 22px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-height: 220px;
-      position: relative;
-    }
-    .benefit-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 10px;
-    }
-    .benefit-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--dark);
-    }
-    .benefit-desc {
-      color: var(--gray);
-      font-size: 0.97rem;
-      margin-bottom: 10px;
-    }
-    .benefit-arrow {
-      position: absolute;
-      right: 18px;
-      bottom: 18px;
-      color: var(--primary);
-      font-size: 1.3rem;
-      transition: color .2s;
-      text-decoration: none;
-    }
-    .benefit-arrow:hover {
-      color: #e6a700;
-    }
-    footer {
-      background: #fff;
-      border-top: 1px solid var(--border);
-      padding: 40px 0 16px 0;
-      margin-top: 32px;
-    }
-    .footer-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .footer-col {
-      flex: 1 1 180px;
-      margin-bottom: 18px;
-    }
-    .footer-title {
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--dark);
-    }
-    .footer-link, .footer-contact, .footer-social {
-      color: black;
-      font-size: 0.98rem;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 7px;
-    }
-    .footer-socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .footer-socials a {
-      color: black;
-      font-size: 1.3rem;
-      transition: color .2s;
-    }
-    .footer-socials a:hover {
-      color: var(--primary);
-    }
-    .footer-bottom {
-      text-align: center;
-      color: #bbb;
-      font-size: 0.93rem;
-      margin-top: 16px;
-    }
-    @media (max-width: 900px) {
-      .benefits-list {
-        grid-template-columns: 1fr 1fr;
-      }
-      .footer-container {
-        flex-direction: column;
-        gap: 24px;
-      }
-    }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        gap: 12px;
-        padding: 18px 10px;
-      }
-      .hero-title {
-        font-size: 1.3rem;
-      }
-      .hero-video img {
-        width: 100%;
-      }
-      .benefits-list {
-        grid-template-columns: 1fr;
-      }
-      .benefits-section {
-        padding: 28px 0 24px 0;
-      }
-      .footer-container {
-        padding: 0 10px;
-      }
-    }
-  </style>
 </head>
 <body>
-
-<!-- Welcome Overlay -->
-<div class="welcome-overlay">
-  Welcome to NexLearn!
-</div>
-
-<!-- Header -->
-<header>
-  <div class="logo">
-    <img src="logo.png" style="width:40px; height:40px;" alt="Logo">
-  </div>
-  <nav>
-    <a href="../home page/home.html">Home</a>
-    <a href="../course page/course.html">Courses</a>
-    <a href="../about us page/about.html">About Us</a>
-    <a href="../Faqs page/Faqs.html">FAQs</a>
-    <a href="../contact page/contact.html">Contact</a>
-  </nav>
-  <div class="nav-actions">
-    <a href="../signup page/signup.html">Sign Up</a>
-    <a href="../login page/login.html" class="btn">Login</a>
-  </div>
-</header>
-
-<!-- Hero Section -->
-<section class="hero">
-  <div>
-    <span class="highlight">Unlock</span> <span class="hero-title">Your Creative Potential</span>
-  </div>
-  <div class="hero-desc">
-    with Online Design and Development Courses.<br>
-    Learn best and Elevate Your Skills.
-  </div>
-  <a href="#" class="btn">Explore Courses</a>
-  <div class="hero-video">
-    <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/oCmyILHWLDZDpop/image.jpg" alt="Hero Video Thumbnail">
-  </div>
-</section>
-
-<!-- Benefits Section -->
-<section class="benefits-section">
-  <div class="benefits-container">
-    <div class="benefits-header">
-      <div class="benefits-title">Benefits</div>
-      <a href="#" class="benefits-viewall">View All</a>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    /*     display: flex; */
+        :root {
+          --primary: #ffb800;
+          --dark: #222;
+          --gray: #666;
+          --light: #f9f9f9;
+          --border: #eee;
+        }
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          font-family: 'Inter', Arial, sans-serif;
+          background: #fff;
+          color: var(--dark);
+          line-height: 1.6;
+          min-height: 100vh;
+        }
+        header {
+          display: flex;
+          /* justify-content: space-between; */
+          align-items: center;
+          /* padding: 24px 40px 18px 40px; */
+          padding: 20px 40px;
+          border-bottom: 1px solid var(--border);
+          background: #fff;
+        }
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+        nav {
+          display: flex;
+          gap: 28px;
+          /* align-items:center; */
+          padding: 10px 40px;
+        }
+        nav a {
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 500;
+          font-size: 1rem;
+          transition: color .2s;
+        }
+        nav a:hover {
+          color: var(--primary);
+        }
+        .nav-actions {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          margin-left: 52%;
+        }
+        .nav-actions a {
+          color: var(--dark);
+          font-size: 1rem;
+          text-decoration: none;
+        }
+        .btn {
+          background: var(--primary);
+          color: #fff;
+          border: none;
+          padding: 8px 22px;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background .2s;
+          text-decoration: none;
+          margin-left: 8px;
+        }
+        .btn:hover {
+          background: #e6a700;
+        }
+        .hero {
+          text-align: center;
+          padding: 48px 20px 30px 20px;
+          background: #fff;
+        }
+        .hero .highlight {
+          color: var(--primary);
+          font-weight: 700;
+        }
+        .hero-title {
+          font-size: 2.3rem;
+          font-weight: 700;
+          margin: 0 0 12px 0;
+        }
+        .hero-desc {
+          font-size: 1.1rem;
+          color: var(--gray);
+          margin-bottom: 12px;
+        }
+        .hero .btn {
+          margin-top: 18px;
+          font-size: 1.1rem;
+          padding: 12px 32px;
+        }
+        .hero-video {
+          display: flex;
+          justify-content: center;
+          margin-top: 36px;
+          margin-bottom: 24px;
+        }
+        .hero-video img {
+          border-radius: 12px;
+          max-width: 100%;
+          width: 520px;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+        }
+        .benefits-section {
+          background: var(--light);
+          padding: 44px 0 40px 0;
+        }
+        .benefits-container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+        .benefits-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 28px;
+        }
+        .benefits-title {
+          font-size: 1.45rem;
+          font-weight: 600;
+        }
+        .benefits-viewall {
+          color: var(--primary);
+          font-weight: 600;
+          text-decoration: none;
+          font-size: 1rem;
+          transition: color .2s;
+        }
+        .benefits-viewall:hover {
+          color: #e6a700;
+        }
+        .benefits-list {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 32px 24px;
+        }
+        .benefit-item {
+          background: #fff;
+          border-radius: 10px;
+          padding: 32px 22px 28px 22px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          min-height: 220px;
+          position: relative;
+        }
+        .benefit-number {
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: var(--primary);
+          margin-bottom: 10px;
+        }
+        .benefit-title {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 8px;
+          color: var(--dark);
+        }
+        .benefit-desc {
+          color: var(--gray);
+          font-size: 0.97rem;
+          margin-bottom: 10px;
+        }
+        .benefit-arrow {
+          position: absolute;
+          right: 18px;
+          bottom: 18px;
+          color: var(--primary);
+          font-size: 1.3rem;
+          transition: color .2s;
+          text-decoration: none;
+        }
+        .benefit-arrow:hover {
+          color: #e6a700;
+        }
+        footer {
+          background: #fff;
+          border-top: 1px solid var(--border);
+          padding: 40px 0 16px 0;
+          margin-top: 32px;
+        }
+        .footer-container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .footer-col {
+          flex: 1 1 180px;
+          margin-bottom: 18px;
+        }
+        .footer-title {
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: var(--dark);
+        }
+        .footer-link, .footer-contact, .footer-social {
+          color: black;
+          font-size: 0.98rem;
+          text-decoration: none;
+          display: block;
+          margin-bottom: 7px;
+        }
+        .footer-socials {
+          display: flex;
+          gap: 12px;
+          margin-top: 8px;
+        }
+        .footer-socials a {
+          color: black;
+          font-size: 1.3rem;
+          transition: color .2s;
+        }
+        .footer-socials a:hover {
+          color: var(--primary);
+        }
+        .footer-bottom {
+          text-align: center;
+          color: #bbb;
+          font-size: 0.93rem;
+          margin-top: 16px;
+        }
+        @media (max-width: 900px) {
+          .benefits-list {
+            grid-template-columns: 1fr 1fr;
+          }
+          .footer-container {
+            flex-direction: column;
+            gap: 24px;
+          }
+        }
+        @media (max-width: 600px) {
+          header {
+            flex-direction: column;
+            gap: 12px;
+            padding: 18px 10px;
+          }
+          .hero-title {
+            font-size: 1.3rem;
+          }
+          .hero-video img {
+            width: 100%;
+            min-width: 0;
+          }
+          .benefits-list {
+            grid-template-columns: 1fr;
+          }
+          .benefits-section {
+            padding: 28px 0 24px 0;
+          }
+          .footer-container {
+            padding: 0 10px;
+          }
+        }</style>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+        <img src="logo.png" style="width:40px; height:40px;" alt="Logo">
     </div>
-    <div class="benefits-list">
-      <!-- All Benefit Items -->
-      <!-- ... (you already have them perfectly) ... -->
+    <nav>
+      <a href="../home page/home.html">Home</a>
+      <a href="../course page/course.html">Courses</a>
+      <a href="../about us page/about.html">About Us</a>
+      <a href="../Faqs page/Faqs.html">FAQs</a>
+      <a href="../contact page/contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="../signup page/signup.html">Sign Up</a>
+      <a href="../login page/login.html" class="btn">Login</a>
     </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="footer-container">
-    <!-- Footer Content -->
-    <!-- ... (your existing footer) ... -->
-  </div>
-  <div class="footer-bottom">
-    © 2025 NEXLEARN. All rights reserved.
-  </div>
-</footer>
-
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div>
+      <span class="highlight">Unlock</span> <span class="hero-title">Your Creative Potential</span>
+    </div>
+    <div class="hero-desc">
+      with Online Design and Development Courses.<br>
+      Learn best and Elevate Your Skills.
+    </div>
+    <a href="#" class="btn">Explore Courses</a>
+    <div class="hero-video">
+      <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/oCmyILHWLDZDpop/image.jpg" alt="Hero Video Thumbnail">
+    </div>
+  </section>
+  
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="benefits-container">
+      <div class="benefits-header">
+        <div class="benefits-title">Benefits</div>
+        <a href="#" class="benefits-viewall">View All</a>
+      </div>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-number">01</div>
+          <div class="benefit-title">Flexible Learning Schedule</div>
+          <div class="benefit-desc">Fit your courses around your schedule and enjoy convenience without obligations.</div>
+          <a href="#" class="benefit-arrow">&#8594;</a>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-number">02</div>
+          <div class="benefit-title">Expert Instruction</div>
+          <div class="benefit-desc">Learn from leading experts who share their knowledge in design and development.</div>
+          <a href="#" class="benefit-arrow">&#8594;</a>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-number">03</div>
+          <div class="benefit-title">Diverse Course Offering</div>
+          <div class="benefit-desc">Explore a wide range of courses covering various topics.</div>
+          <a href="#" class="benefit-arrow">&#8594;</a>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-number">04</div>
+          <div class="benefit-title">Updated Curriculum</div>
+          <div class="benefit-desc">Our offerings stay up-to-date with the latest industry practices.</div>
+          <a href="#" class="benefit-arrow">&#8594;</a>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-number">05</div>
+          <div class="benefit-title">Practical Projects and Assignments</div>
+          <div class="benefit-desc">Gain hands-on experience and build a portfolio as you learn.</div>
+          <a href="#" class="benefit-arrow">&#8594;</a>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-number">06</div>
+          <div class="benefit-title">Interactive Learning Environment</div>
+          <div class="benefit-desc">Engage with instructors and peers for a collaborative experience.</div>
+          <a href="#" class="benefit-arrow">&#8594;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="footer-title">Contact</div>
+        <div class="footer-contact">NEXLEARN@gmail.com</div>
+        <div class="footer-contact">+91-99999-88888</div>
+        <div class="footer-contact">Somewhere in the India</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Home</div>
+        <a href="#" class="footer-link">Benefits</a>
+        <a href="#" class="footer-link">Courses</a>
+        <a href="#" class="footer-link">Our Team</a>
+        <a href="#" class="footer-link">Our FAQ</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">About Us</div>
+        <a href="#" class="footer-link">Company</a>
+        <a href="#" class="footer-link">Achievements</a>
+        <a href="#" class="footer-link">Our Goals</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-title">Social Profiles</div>
+        <div class="footer-socials">
+          <a href="#" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" title="Instagram"><span>&#xf16d;</span></a>
+          <a href="#" title="LinkedIn"><span>&#xf0e1;</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 NEXLEARN. All rights reserved.
+    </div>
+  </footer>
+ 
 </body>
 </html>
