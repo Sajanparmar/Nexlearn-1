@@ -14,78 +14,62 @@
     }
 
     /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fff;
-      padding: 0 40px;
-      height: 68px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      margin-right: 18px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 38px; /* More gap for screenshot-like spacing */
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li a {
-      text-decoration: none;
-      color: #222;
-      font-size: 18px;
-      font-weight: 500;
-      background: none;
-      border: none;
-      padding: 0;
-      transition: color 0.2s;
-      display: inline-block;
-      line-height: 68px;
-    }
-
-    .nav-menu li a:hover {
-      color: #ffa500;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-signup {
-      color: #222;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 16px;
-      background: none;
-      border: none;
-      padding: 0 8px;
-    }
-
-    .nav-login {
-      background: #ffa500;
-      color: #fff;
-      padding: 8px 26px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      border: none;
-    }
+    header {
+          display: flex;
+          /* justify-content: space-between; */
+          align-items: center;
+          /* padding: 24px 40px 18px 40px; */
+          padding: 20px 40px;
+          border-bottom: 1px solid var(--border);
+          background: #fff;
+        }
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+        nav {
+          display: flex;
+          gap: 28px;
+          /* align-items:center; */
+          padding: 10px 40px;
+        }
+        nav a {
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 500;
+          font-size: 1rem;
+          transition: color .2s;
+        }
+        nav a:hover {
+          color: var(--primary);
+        }
+        .nav-actions {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          margin-left: 52%;
+        }
+        .nav-actions a {
+          color: var(--dark);
+          font-size: 1rem;
+          text-decoration: none;
+        }
+        .btn {
+          background: var(--primary);
+          color: #fff;
+          border: none;
+          padding: 8px 22px;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background .2s;
+          text-decoration: none;
+          margin-left: 8px;
+        }
+        .btn:hover {
+          background: #e6a700;
+        }
 
     /* Main Content */
     .main-content {
@@ -385,22 +369,21 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="Logo_without_bck2.PNG" class="logo" alt="Logo">
-      <ul class="nav-menu">
-        <li><a href="../home page/home.html">Home</a></li>
-        <li><a href="../course page/course.html">Courses</a></li>
-        <li><a href="../about us page/about.html">About Us</a></li>
-        <li><a href="../Faqs page/Faqs.html">FAQs</a></li>
-        <li><a href="../contact page/contact.html">Contact</a></li>
-      </ul>
+  <header>
+    <div class="logo">
+        <img src="Logo_without_bck2.PNG" style="width:40px; height:40px;" alt="Logo">
     </div>
-    <div class="nav-right">
-      <a href="../signup page/signup.html" class="nav-signup">Sign Up</a>
-      <a href="../login page/login.html" class="nav-login">Login</a>
+    <nav>
+      <a href="../course page/course.html">Courses</a>
+      <a href="../about us page/about.html">About Us</a>
+      <a href="../Faqs page/Faqs.html">FAQs</a>
+      <a href="../contact page/contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="../signup page/signup.html">Sign Up</a>
+      <a href="../login page/login.html" class="btn">Login</a>
     </div>
-  </nav>
+  </header>
 
   <!-- Main Content -->
   <main class="main-content">
