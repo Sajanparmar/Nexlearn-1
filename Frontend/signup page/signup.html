@@ -14,78 +14,62 @@
     }
 
     /* Navbar */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #fff;
-      padding: 0 40px;
-      height: 68px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .logo {
-      width: 40px;
-      height: 40px;
-      margin-right: 18px;
-    }
-
-    .nav-left {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      gap: 38px; /* More gap for screenshot-like spacing */
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li a {
-      text-decoration: none;
-      color: #222;
-      font-size: 18px;
-      font-weight: 500;
-      background: none;
-      border: none;
-      padding: 0;
-      transition: color 0.2s;
-      display: inline-block;
-      line-height: 68px;
-    }
-
-    .nav-menu li a:hover {
-      color: #ffa500;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-signup {
-      color: #222;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 16px;
-      background: none;
-      border: none;
-      padding: 0 8px;
-    }
-
-    .nav-login {
-      background: #ffa500;
-      color: #fff;
-      padding: 8px 26px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      border: none;
-    }
+    header {
+          display: flex;
+          /* justify-content: space-between; */
+          align-items: center;
+          /* padding: 24px 40px 18px 40px; */
+          padding: 20px 40px;
+          border-bottom: 1px solid var(--border);
+          background: #fff;
+        }
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+        nav {
+          display: flex;
+          gap: 28px;
+          /* align-items:center; */
+          padding: 10px 40px;
+        }
+        nav a {
+          text-decoration: none;
+          color: var(--dark);
+          font-weight: 500;
+          font-size: 1rem;
+          transition: color .2s;
+        }
+        nav a:hover {
+          color: var(--primary);
+        }
+        .nav-actions {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          margin-left: 52%;
+        }
+        .nav-actions a {
+          color: var(--dark);
+          font-size: 1rem;
+          text-decoration: none;
+        }
+        .btn {
+          background: var(--primary);
+          color: #fff;
+          border: none;
+          padding: 8px 22px;
+          border-radius: 6px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background .2s;
+          text-decoration: none;
+          margin-left: 8px;
+        }
+        .btn:hover {
+          background: #e6a700;
+        }
 
     /* Main Content */
     .main-content {
@@ -315,69 +299,55 @@
     }
 
     /* Footer */
-    .footer {
-      background: #fff;
-      border-top: 1px solid #eee;
-      margin-top: 48px;
-      padding: 0;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 30px;
-      padding: 32px 40px 18px 40px;
-      flex-wrap: wrap;
-    }
-
-    .footer-col {
-      min-width: 170px;
-    }
-
-    .footer-contact p {
-      margin: 0 0 4px 0;
-      color: #222;
-      font-size: 15px;
-    }
-
-    .footer-col h4 {
-      margin: 0 0 8px 0;
-      font-size: 16px;
-      font-weight: 700;
-      color: #222;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 6px;
-      color: #222;
-      font-size: 15px;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 12px;
-      margin-top: 6px;
-    }
-
-    .footer-social img {
-      width: 22px;
-      height: 22px;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      color: #aaa;
-      font-size: 14px;
-      padding: 12px 0 16px 0;
-      border-top: 1px solid #eee;
-    }
+    footer {
+          background: #fff;
+          border-top: 1px solid var(--border);
+          padding: 40px 0 16px 0;
+          margin-top: 32px;
+        }
+        .footer-container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .footer-col {
+          flex: 1 1 180px;
+          margin-bottom: 18px;
+        }
+        .footer-title {
+          font-weight: 600;
+          margin-bottom: 10px;
+          color: var(--dark);
+        }
+        .footer-link, .footer-contact, .footer-social {
+          color: black;
+          font-size: 0.98rem;
+          text-decoration: none;
+          display: block;
+          margin-bottom: 7px;
+        }
+        .footer-socials {
+          display: flex;
+          gap: 12px;
+          margin-top: 8px;
+        }
+        .footer-socials a {
+          color: black;
+          font-size: 1.3rem;
+          transition: color .2s;
+        }
+        .footer-socials a:hover {
+          color: var(--primary);
+        }
+        .footer-bottom {
+          text-align: center;
+          color: #bbb;
+          font-size: 0.93rem;
+          margin-top: 16px;
+        }
     
 
     @media (max-width: 1100px) {
@@ -399,22 +369,21 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <img src="Logo_without_bck2.PNG" class="logo" alt="Logo">
-      <ul class="nav-menu">
-        <li><a href="../home page/home.html">Home</a></li>
-        <li><a href="../course page/course.html">Courses</a></li>
-        <li><a href="../about us page/about.html">About Us</a></li>
-        <li><a href="../Faqs page/Faqs.html">FAQs</a></li>
-        <li><a href="../contact page/contact.html">Contact</a></li>
-      </ul>
+  <header>
+    <div class="logo">
+        <img src="Logo_without_bck2.PNG" style="width:40px; height:40px;" alt="Logo">
     </div>
-    <div class="nav-right">
-      <a href="../signup page/signup.html" class="nav-signup">Sign Up</a>
-      <a href="../login page/login.html" class="nav-login">Login</a>
+    <nav>
+      <a href="../course page/course.html">Courses</a>
+      <a href="../about us page/about.html">About Us</a>
+      <a href="../Faqs page/Faqs.html">FAQs</a>
+      <a href="../contact page/contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="../signup page/signup.html">Sign Up</a>
+      <a href="../login page/login.html" class="btn">Login</a>
     </div>
-  </nav>
+  </header>
 
   <!-- Main Content -->
   <main class="main-content">
@@ -471,44 +440,39 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-col logo-col">
-        <div class="footer-contact">
-          <p>hello@Nexlearn.com</p>
-          <p>+91 91813 23 2309</p>
-          <p>Somewhere in the India</p>
-        </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <div class="footer-title">Contact</div>
+        <div class="footer-contact"><i class="fa-solid fa-envelope"></i> NEXLEARN@gmail.com</div>
+        <div class="footer-contact"><i class="fa-solid fa-phone"></i> +91-99999-88888</div>
+        <div class="footer-contact"><i class="fa-solid fa-location-dot"></i> Somewhere in the India</div>
       </div>
       <div class="footer-col">
-        <h4>Home</h4>
-        <ul>
-          <li>Benefits</li>
-          <li>Our Courses</li>
-          <li>Our Testimonials</li>
-          <li>Our FAQ</li>
-        </ul>
+        <div class="footer-title">Home</div>
+        <a href="#" class="footer-link">Benefits</a>
+        <a href="#" class="footer-link">Courses</a>
+        <a href="#" class="footer-link">Our Team</a>
+        <a href="#" class="footer-link">Our FAQ</a>
       </div>
       <div class="footer-col">
-        <h4>About Us</h4>
-        <ul>
-          <li>Company</li>
-          <li>Achievements</li>
-          <li>Our Goals</li>
-        </ul>
+        <div class="footer-title">About Us</div>
+        <a href="#" class="footer-link">Company</a>
+        <a href="#" class="footer-link">Achievements</a>
+        <a href="#" class="footer-link">Our Goals</a>
       </div>
       <div class="footer-col">
-        <h4>Social Profiles</h4>
-        <div class="footer-social">
+        <div class="footer-title">Social Profiles</div>
+        <div class="footer-socials">
           <a href="#" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-          <a href="#" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="#" title="Instagram"><span>&#xf16d;</span></a>
-          <a href="#" title="LinkedIn"><span>&#xf0e1;</span></a>
+          <a href="#" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Nexlearn. All rights reserved.</p>
+      © 2025 NEXLEARN. All rights reserved.
     </div>
   </footer>
   <script>
